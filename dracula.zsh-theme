@@ -20,7 +20,7 @@ async_init
 
 # Options {{{
 # Set to 1 to show the date
-DRACULA_DISPLAY_TIME=${DRACULA_DISPLAY_TIME:-0}
+DRACULA_DISPLAY_TIME=${DRACULA_DISPLAY_TIME:-1}
 
 # Set to 1 to show the 'context' segment
 DRACULA_DISPLAY_CONTEXT=${DRACULA_DISPLAY_CONTEXT:-0}
@@ -96,7 +96,7 @@ PROMPT+='%F{magenta}%B$(dracula_context)'
 # }}}
 
 # Directory segment {{{
-PROMPT+='%F{blue}%B%c '
+PROMPT+='%F{blue}%B%~ '
 # }}}
 
 # Async git segment {{{
