@@ -23,7 +23,7 @@ async_init
 DRACULA_DISPLAY_TIME=${DRACULA_DISPLAY_TIME:-1}
 
 # Set to 1 to show the 'context' segment
-DRACULA_DISPLAY_CONTEXT=${DRACULA_DISPLAY_CONTEXT:-0}
+DRACULA_DISPLAY_CONTEXT=${DRACULA_DISPLAY_CONTEXT:-1}
 
 # Changes the arrow icon
 DRACULA_ARROW_ICON=${DRACULA_ARROW_ICON:-➜}
@@ -66,12 +66,7 @@ PROMPT='%(1V:%F{yellow}:%(?:%F{green}:%F{red}))${DRACULA_ARROW_ICON}'
 dracula_time_segment() {
   if (( DRACULA_DISPLAY_TIME )); then
     if [[ -z "$TIME_FORMAT" ]]; then
-      TIME_FORMAT=" %-H:%M"
-      
-      # check if locale uses AM and PM
-      if ! locale -ck LC_TIME | grep 'am_pm=";"' > /dev/null; then
-        TIME_FORMAT=" %-I:%M%p"
-      fi
+      TIME_FORMAT="[%H:%M]"
     fi
 
     print -P "%D{$TIME_FORMAT}"
