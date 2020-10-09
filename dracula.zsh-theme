@@ -9,7 +9,6 @@
 # http://zenorocha.mit-license.org
 #
 # @author Zeno Rocha <hi@zenorocha.com>
-# @maintainer Aidan Williams <aidanwillie0317@protonmail.com>
 
 # Initialization {{{
 source ${0:A:h}/lib/async.zsh
@@ -56,6 +55,10 @@ dracula_test_git_optional_lock() {
 DRACULA_GIT_NOLOCK=${DRACULA_GIT_NOLOCK:-$(dracula_test_git_optional_lock)}
 # }}}
 
+# Host segment {{{
+PROMPT='%F{39}%B[%M] '
+# }}}
+
 # Status segment {{{
 # arrow is green if last command was successful, red if not, 
 # turns yellow in vi command mode
@@ -73,7 +76,7 @@ dracula_time_segment() {
   fi
 }
 
-PROMPT+='%F{green}%B$(dracula_time_segment) '
+PROMPT+='%F{green}%B$(dracula_time_segment)'
 # }}}
 
 # User context segment {{{
@@ -168,4 +171,3 @@ zle -N zle-keymap-select
 
 # Ensure effects are reset
 PROMPT+='%f%b'
-
